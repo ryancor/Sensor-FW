@@ -2,11 +2,6 @@
   time.h - low level time and date functions
 */
 
-/*
-  July 3 2011 - fixed elapsedSecsThisWeek macro (thanks Vincent Valdy for this)
-              - fixed  daysToTime_t macro (thanks maniacbug)
-*/     
-
 #ifndef _Time_h
 #ifdef __cplusplus
 #define _Time_h
@@ -21,15 +16,6 @@
 typedef unsigned long time_t;
 #endif
 
-
-// This ugly hack allows us to define C++ overloaded functions, when included
-// from within an extern "C", as newlib's sys/stat.h does.  Actually it is
-// intended to include "time.h" from the C library (on ARM, but AVR does not
-// have that file at all).  On Mac and Windows, the compiler will find this
-// "Time.h" instead of the C library "time.h", so we may cause other weird
-// and unpredictable effects by conflicting with the C library header "time.h",
-// but at least this hack lets us define C++ functions as intended.  Hopefully
-// nothing too terrible will result from overriding the C library header?!
 extern "C++" {
 typedef enum {timeNotSet, timeNeedsSync, timeSet
 }  timeStatus_t ;
