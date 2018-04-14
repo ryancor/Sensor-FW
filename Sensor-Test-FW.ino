@@ -62,7 +62,7 @@ void loop(){
 
          // Starting ping
          Serial.println("Detecting Distance");
-         delay(2000);
+         delay(3000); // Wait 3 seconds to calibrate
          for(int i = 0; i < 7; i++) {
           loop_the_ping();
          }
